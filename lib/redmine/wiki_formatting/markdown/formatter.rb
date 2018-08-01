@@ -61,6 +61,9 @@ class HTMLwithSyntaxHighlighting < ::Redcarpet::Render::HTML
       return a
     end
   end
+  def underline(text)
+    text
+  end
 end  
 
 module Redmine
@@ -84,7 +87,8 @@ module Redmine
             :tables => true,
             :strikethrough => true,
             :superscript => true,
-            :no_intra_emphasis => enable_no_intra_emphasis
+            :no_intra_emphasis => enable_no_intra_emphasis,
+            :underline => true
           )
           markdown.render(@text)
         rescue => e
